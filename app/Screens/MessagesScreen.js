@@ -1,7 +1,8 @@
-import { StyleSheet, FlatList, SafeAreaView,StatusBar,Platform } from "react-native";
+import { FlatList,View } from "react-native";
 import React from "react";
 import ListItem from "../Components/ListItem";
 import Screen from "../Components/Screen";
+import ListItemSeparator from "../Components/ListItemSeparator";
 
 const messages = [
   {
@@ -29,8 +30,10 @@ export default function MessagesScreen() {
             title={item.title}
             subtitle={item.description}
             image={item.image}
+            onPress={() => console.log("Message Selected")}
           />
         )}
+        ItemSeparatorComponent={ListItemSeparator}
       />
     </Screen>
   );
