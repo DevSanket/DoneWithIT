@@ -3,6 +3,7 @@ import React from "react";
 import ListItem from "../Components/ListItem";
 import Screen from "../Components/Screen";
 import ListItemSeparator from "../Components/ListItemSeparator";
+import ListItemDeleteAction from "../Components/ListItemDeleteAction";
 
 const messages = [
   {
@@ -31,6 +32,7 @@ export default function MessagesScreen() {
             subtitle={item.description}
             image={item.image}
             onPress={() => console.log("Message Selected")}
+            renderRightActions={ListItemDeleteAction}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}

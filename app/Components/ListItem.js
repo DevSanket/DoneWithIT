@@ -2,9 +2,13 @@ import { StyleSheet, Text, View,Image,TouchableHighlight } from 'react-native'
 import React from 'react'
 import AppText from './AppText'
 import colors from '../config/colors'
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-export default function ListItem({title,subtitle,image,onPress}) {
+export default function ListItem({title,subtitle,image,onPress,renderRightActions}) {
   return (
+    <GestureHandlerRootView>
+    <Swipeable renderRightActions={renderRightActions}>
     <TouchableHighlight
     underlayColor={colors.light}
     onPress={onPress}
@@ -17,6 +21,8 @@ export default function ListItem({title,subtitle,image,onPress}) {
         </View>
     </View>
     </TouchableHighlight>
+    </Swipeable>
+    </GestureHandlerRootView>
   )
 }
 
