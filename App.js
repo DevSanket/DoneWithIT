@@ -11,26 +11,18 @@ import ListingScreen from './app/Screens/ListingScreen';
 import MessagesScreen from './app/Screens/MessagesScreen';
 import ViewImageScreen from './app/Screens/ViewImageScreen';
 import React,{useState} from 'react';
-import AppPicker from './app/Components/AppPicker';
+import LoginScreen from './app/Screens/LoginScreen';
 
-const categories = [
-  {label:"Furniture",value:1},
-  {label:"Clothing",value:2},
-  {label:"Cameras",value:3}
-];
+
+
 
 export default function App() {
 
-  const [category,setCategory] = useState();
   
   return (
-    <Screen>
-      <AppPicker 
-      selectedItem={category}
-      onSelectItem={item => setCategory(item)}
-      items={categories} icon="apps" placeholder="Category" />
-      <AppTextInput icon="email" placeholder="email" />
-    </Screen>
+   
+    <LoginScreen />
+      
   );
 }
 
