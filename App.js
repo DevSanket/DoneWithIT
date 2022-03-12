@@ -12,6 +12,7 @@ import MessagesScreen from './app/Screens/MessagesScreen';
 import ViewImageScreen from './app/Screens/ViewImageScreen';
 import React,{useState} from 'react';
 import LoginScreen from './app/Screens/LoginScreen';
+import ListEditingScreen from './app/Screens/ListEditingScreen';
 
 
 
@@ -21,7 +22,7 @@ export default function App() {
   
   return (
    
-    <LoginScreen />
+    <ListEditingScreen />
       
   );
 }

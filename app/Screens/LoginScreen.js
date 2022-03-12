@@ -1,12 +1,8 @@
-import { StyleSheet, Text, View, Image } from "react-native";
-import React, { useState } from "react";
+import { StyleSheet, Image } from "react-native";
+import React from "react";
 import Screen from "../Components/Screen";
-import AppTextInput from "../Components/AppTextInput";
-import AppButton from "../Components/AppButton";
-import { Formik } from "formik";
 import * as Yup from 'yup';
-import AppText from "../Components/AppText";
-import ErrorMessage from "../Components/ErrorMessage";
+import {AppForm,AppFormField,SubmitButton} from '../Components/forms';
 
 const validationSchema = Yup.object().shape({
     email : Yup.string().required().email().label("Email"),
@@ -21,40 +17,31 @@ export default function LoginScreen() {
     <Screen style={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
 
-      <Formik
+      <AppForm
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit,errors }) => (
-          <>
-            <AppTextInput
+        <AppFormField
               autoCapitalize="none"
               autoCorrect={false}
               icon="email"
-              onChangeText={handleChange("email")}
               keyboardType="email-address"
               placeholder="Email"
+             name="email"
               textContentType="emailAddress"
             />
-            <ErrorMessage error={errors.email} />
-            <AppTextInput
+            <AppFormField
               autoCapitalize="none"
               autoCorrect={false}
               icon="lock"
-              onChangeText={handleChange("password")}
               placeholder="Password"
               secureTextEntry
+              name="password"
               textContentType="password"
             />
-            <ErrorMessage error={errors.password} />
-            <AppButton
-              title="Login"
-              onPress={handleSubmit}
-            />
-          </>
-        )}
-      </Formik>
+            <SubmitButton title="Login"/>
+      </AppForm>
     </Screen>
   );
 }
