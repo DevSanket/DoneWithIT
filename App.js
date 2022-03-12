@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,SafeAreaView,Switch } from 'react-native';
-import AppTextInput from './app/Components/AppTextInput';
 import Card from './app/Components/Card';
 import Icon from './app/Components/Icon';
 import ListItem from './app/Components/ListItem';
@@ -22,7 +21,7 @@ export default function App() {
   
   return (
    
-    <ListEditingScreen />
+    <LoginScreen />
       
   );
 }
