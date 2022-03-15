@@ -1,33 +1,55 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,SafeAreaView,Switch,Button,Image } from 'react-native';
-import Card from './app/Components/Card';
-import Icon from './app/Components/Icon';
-import ListItem from './app/Components/ListItem';
+import {Text} from 'react-native';
 import Screen from './app/Components/Screen';
-import AccountScreen from './app/Screens/AccountScreen';
-import ListingDetailsScreen from './app/Screens/ListingDetailsScreen';
-import ListingScreen from './app/Screens/ListingScreen';
-import MessagesScreen from './app/Screens/MessagesScreen';
-import ViewImageScreen from './app/Screens/ViewImageScreen';
-import React,{useEffect,useState} from 'react';
-import LoginScreen from './app/Screens/LoginScreen';
-import ListEditingScreen from './app/Screens/ListEditingScreen';
-import * as ImagePicker from 'expo-image-picker';
-import * as Permissions from 'expo-permissions';
-import ImageInput from './app/Components/ImageInput';
-import ImageInputList from './app/Components/ImageInputList';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Button from './app/Components/Button';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+const Tweets = ({navigation}) => (
+  <Screen>
+    <Text>Tweets</Text>
+    <Button title="View Tweet" onPress={() => navigation.navigate("TweetsDetails",{id:1})} />
+  </Screen>
+)
 
+const TweetsDetails = ({route}) => (
+  <Screen>
+    <Text>Tweets details {route.params.id}</Text>
+  </Screen>
+)
 
+const Stack = createStackNavigator();
+const Account = () => {
+  return (
+    <Screen>
+      <Text>Account Page</Text>
+    </Screen>
+  )
+}
 
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => (
+  <Tab.Navigator>
+    <Tab.Screen name='Feed' component={Tweets} />
+    <Tab.Screen name='Account' component={Account} />
+  </Tab.Navigator>
+)
 
-
-
+const StackNavigator = () => (
+  <Stack.Navigator initialRouteName='Tweets'>
+    <Stack.Screen name='Tweets' component={Tweets} />
+    <Stack.Screen name='TweetsDetails' component={TweetsDetails} />
+  </Stack.Navigator>
+)
 
 export default function App() {
   
   return (
    
-   <ListEditingScreen />
+    <NavigationContainer>
+      <TabNavigator/>
+    </NavigationContainer>
+    
   )     
 }
 
