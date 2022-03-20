@@ -2,7 +2,10 @@ import client from './client';
 
 const endpoint = '/listings';
 
-const getListings = (a,b,c) => client.get(endpoint);
+const getListings = () => client.get(endpoint);
+
+
+
 
 const addListing = (listing,onUploadProgress) => {
     //content-type

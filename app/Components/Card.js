@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View,Image,TouchableWithoutFeedback } from 'react-native'
+import { StyleSheet, Text,Image, View,TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
 import colors from '../config/colors'
-import AppText from './AppText'
+import AppText from './AppText';
+
 
 export default function Card({title,subtitle,imageUrl,onPress}) {
   return (
